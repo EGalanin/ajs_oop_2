@@ -19,13 +19,12 @@ export default class Character {
   }
 
   levelUp() {
-    if(this.health > 0) {
+    if (this.health > 0) {
       this.level += 1;
       this.attack *= 1.2;
       this.defence *= 1.2;
       this.health = 100;
-    }
-    else{
+    } else {
       throw new Error('You cannot raise the level with zero health');
     }
   }
@@ -33,7 +32,7 @@ export default class Character {
   damage(points) {
     this.health -= points * (1 - this.defence / 100);
     if (this.health < 0) {
-        this.health = 0;
+      this.health = 0;
     }
   }
 }

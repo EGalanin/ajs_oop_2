@@ -94,46 +94,41 @@ test('Zombie', () => {
 });
 
 test('Level Up', () => {
-    const result = new Undead('Undead');
-    result.levelUp();
-    expect(result).toEqual({
-        name: 'Undead',
-        type: 'Undead',
-        health: 100,
-        level: 2,
-        attack: 30,
-        defence: 30,    
-    }); 
+  const result = new Undead('Undead');
+  result.levelUp();
+  expect(result).toEqual({
+    name: 'Undead',
+    type: 'Undead',
+    health: 100,
+    level: 2,
+    attack: 30,
+    defence: 30,
+  });
 });
 
 test('Zero health', () => {
-    const result = new Undead('Undead');
-    result.health = 0;
-    result.levelUp();
-    expect(result).toThrow('You cannot raise the level with zero health');
+  const result = new Undead('Undead');
+  result.health = 0;
+  result.levelUp();
+  expect(result).toThrow('You cannot raise the level with zero health');
 });
 
 test('Not negative health', () => {
-    const result = new Undead('Undead');
-    result.health = 0;
-    result.damage(30);
-    expect(result.health).toBe(0);
+  const result = new Undead('Undead');
+  result.health = 0;
+  result.damage(30);
+  expect(result.health).toBe(0);
 });
 
 test('Inflict damage', () => {
-    const result = new Undead('Undead');
-    result.damage(30);
-    expect(result).toEqual({
-        name: 'Undead',
-        type: 'Undead',
-        health: 77.5,
-        level: 1,
-        attack: 25,
-        defence: 25,
-    });
+  const result = new Undead('Undead');
+  result.damage(30);
+  expect(result).toEqual({
+    name: 'Undead',
+    type: 'Undead',
+    health: 77.5,
+    level: 1,
+    attack: 25,
+    defence: 25,
+  });
 });
-
-
-
-
-
