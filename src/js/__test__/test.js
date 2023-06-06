@@ -7,18 +7,15 @@ import Undead from '../undead';
 import Zombie from '../zombie';
 
 test('Short name', () => {
-  const result = new Character('N', 'Deamon', 50, 50);
-  expect(result).toThrow('Invalid length name');
+  expect(() => { new Character('N', 'Deamon', 50, 50); }).toThrow('Invalid length name');
 });
 
 test('Long name', () => {
-  const result = new Character('LOOOOONGNAME', 'Deamon', 50, 50);
-  expect(result).toThrow('Long name');
+  expect(() => { new Character('LOOOOONGNAME', 'Deamon', 50, 50); }).toThrow('Invalid length name');
 });
 
 test('Invalid type', () => {
-  const result = new Character('Bob', 'FakeDeamon', 50, 50);
-  expect(result).toThrow('Invalid type');
+  expect(() => { new Character('Bob', 'FakeDeamon', 50, 50); }).toThrow('Invalid type');
 });
 
 test('Bowerman', () => {
@@ -109,9 +106,14 @@ test('Level Up', () => {
 test('Zero health', () => {
   const result = new Undead('Undead');
   result.health = 0;
-  result.levelUp();
-  expect(result).toThrow('You cannot raise the level with zero health');
+  expect(() => result.levelUp()).toThrow(
+    'You cannot raise the level with zero health',
+  );
 });
+
+//   result.levelUp();
+//   expect(result).toThrow('You cannot raise the level with zero health');
+// });
 
 test('Not negative health', () => {
   const result = new Undead('Undead');
