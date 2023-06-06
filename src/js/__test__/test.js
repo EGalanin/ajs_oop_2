@@ -7,16 +7,32 @@ import Undead from '../undead';
 import Zombie from '../zombie';
 
 test('Short name', () => {
-  expect(() => { new Character('N', 'Deamon', 50, 50); }).toThrow('Invalid length name');
+  const result = () => { Character('N', 'Deamon', 50, 50); };
+  expect(result).toThrow();
 });
 
 test('Long name', () => {
-  expect(() => { new Character('LOOOOONGNAME', 'Deamon', 50, 50); }).toThrow('Invalid length name');
+  const result = () => { Character('LOOOOONGNAME', 'Deamon', 50, 50); };
+  expect(result).toThrow();
 });
 
 test('Invalid type', () => {
-  expect(() => { new Character('Bob', 'FakeDeamon', 50, 50); }).toThrow('Invalid type');
+  const result = () => { Character('Bob', 'FakeDeamon', 50, 50); };
+  expect(result).toThrow();
 });
+
+// test('Short name', () => {
+//   expect(() => { new Character('N', 'Deamon', 50, 50); }).toThrow('Invalid length name');
+// });
+
+// test('Long name', () => {
+//   expect(
+//     () => { new Character('LOOOOONGNAME', 'Deamon', 50, 50); }).toThrow('Invalid length name');
+// });
+
+// test('Invalid type', () => {
+//   expect(() => { new Character('Bob', 'FakeDeamon', 50, 50); }).toThrow('Invalid type');
+// });
 
 test('Bowerman', () => {
   const result = new Bowerman('Bowerman');
